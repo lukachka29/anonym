@@ -1,28 +1,24 @@
+const ws = new WebSocket('ws://localhost:8080');
+
+ws.onmessage = function(event) {
+    const message = event.data;
+    displayMessage(message);
+};
+
 document.getElementById('messageForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    const recipient = document.getElementById('recipient').value;
-    const message = document.getElementById('message').value;
-    
-    addMessage(recipient, message);
-
-    // Clear the form
-    document.getElementById('messageForm').reset();
+    const input = document.getElementById('messageInput');
+    const message = input.value;
+    ws.send(message);
+    input.value = '';
 });
 
-function addMessage(recipient, message) {
-    const messageList = document.getElementById('messageList');
-    const messageItem = document.createElement('div');
-    messageItem.classList.add('messageItem');
-    
-    const recipientElement = document.createElement('h4');
-    recipientElement.innerText = `To: ${recipient}`;
-    
-    const messageElement = document.createElement('p');
+function displayMessage(message) {
+    const messagesDiv = document.getElementById('messages');
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message');
     messageElement.innerText = message;
-    
-    messageItem.appendChild(recipientElement);
-    messageItem.appendChild(messageElement);
-    
-    messageList.appendChild(messageItem);
+    messagesDiv.appendChild(messageElement);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
+
