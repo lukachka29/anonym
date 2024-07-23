@@ -16,52 +16,50 @@ main {
     padding: 20px;
 }
 
-section {
-    margin-bottom: 20px;
+#chat {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#messages {
+    height: 300px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    border-radius: 5px;
 }
 
 form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
 }
 
-form label {
-    display: block;
-    margin-bottom: 5px;
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
 }
 
-form input[type="text"],
-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-form button {
+button {
     padding: 10px 15px;
+    border: none;
     background-color: #333;
     color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 0 5px 5px 0;
 }
 
-form button:hover {
+button:hover {
     background-color: #555;
-}
-
-#messageList {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.messageItem {
-    background-color: #eee;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
 }
