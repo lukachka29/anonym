@@ -7,11 +7,22 @@ ws.onmessage = function(event) {
 
 document.getElementById('messageForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    sendMessage();
+});
+
+document.getElementById('messageInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+    }
+});
+
+function sendMessage() {
     const input = document.getElementById('messageInput');
     const message = input.value;
     ws.send(message);
     input.value = '';
-});
+}
 
 function displayMessage(message) {
     const messagesDiv = document.getElementById('messages');
@@ -21,4 +32,3 @@ function displayMessage(message) {
     messagesDiv.appendChild(messageElement);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
-
