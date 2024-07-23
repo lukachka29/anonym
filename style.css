@@ -4,6 +4,10 @@ body {
     padding: 0;
     background-color: #e0f7fa;
     color: #0277bd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
 }
 
 header {
@@ -11,15 +15,14 @@ header {
     color: white;
     padding: 20px 0;
     text-align: center;
+    width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 main {
-    padding: 20px;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: calc(100vh - 60px);
 }
 
 #chat {
